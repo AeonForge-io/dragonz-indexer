@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: DragonZ Indexer
+description: Indexing DragonZ Collections
+networks:
+  - id: 2016 # MainnetZ Mainnet
+    rpc_config:
+      url: https://mainnet-rpc.mainnetz.io
+    start_block: 0
+    contracts:
+      - name: DragonZ
+        address:
+          - 0x8222aa611aEe3EA1d3b2Fd6a0a4f3805bd175a48 #DragonZ Series 1 test
+        handler: src/EventHandlers.ts
+        events:
+          - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
