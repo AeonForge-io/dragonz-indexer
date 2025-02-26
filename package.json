@@ -1,0 +1,31 @@
+{
+  "name": "envio-indexer",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "tsc --clean",
+    "build": "tsc --build",
+    "watch": "tsc --watch",
+    "mocha": "ts-mocha test/**/*.ts",
+    "codegen": "envio codegen",
+    "dev": "envio dev",
+    "test": "pnpm mocha",
+    "start": "ts-node generated/src/Index.bs.js"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "10.0.6",
+    "@types/node": "20.8.8",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.2.2",
+    "chai": "4.3.10",
+    "mocha": "10.2.0"
+  },
+  "dependencies": {
+    "envio": "2.13.0"
+  },
+  "optionalDependencies": {
+    "generated": "./generated"
+  },
+  "packageManager": "pnpm@10.5.1+sha512.c424c076bd25c1a5b188c37bb1ca56cc1e136fbf530d98bcb3289982a08fd25527b8c9c4ec113be5e3393c39af04521dd647bcf1d0801eaf8ac6a7b14da313af"
+}
