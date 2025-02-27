@@ -24,7 +24,7 @@ DragonZ.Transfer.handler(async ({ event, context }) => {
     if (!nft) {
       throw new Error("Can't transfer non-existing NFT");
     }
-    nft = { ...nft, to: event.params.to, from: event.params.from };
+    nft = { ...nft, owner: event.params.to };
     context.Nft.set(nft);
   }
 });
