@@ -1,15 +1,29 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
-name: DragonZ Indexer
-description: Indexing DragonZ Collections
+name: MainnetZ Test Indexer
 networks:
-  - id: 2016 # MainnetZ Mainnet
-    rpc_config:
-      url: https://mainnet-rpc.mainnetz.io
-    start_block: 0
-    contracts:
-      - name: DragonZ
-        address:
-          - 0x8222aa611aEe3EA1d3b2Fd6a0a4f3805bd175a48 #DragonZ Series 1 test
-        handler: src/EventHandlers.ts
-        events:
-          - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+- id: 2016 # MainnetZ Mainnet
+  rpc_config:
+    url: https://mainnet-rpc.mainnetz.io
+  start_block: 0
+  stop_block: 6000000
+  contracts:
+    - name: DragonZ
+      address:
+      - 0x8222aa611aEe3EA1d3b2Fd6a0a4f3805bd175a48
+      handler: src/EventHandlers.ts
+      events:
+      - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+      - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+      - event: BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId)
+      - event: MetadataUpdate(uint256 _tokenId)
+      - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+       - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+    - name: NetZFinance
+      address:
+      - 0xb30Cd83BF39CF94Af9d0Fdcc9a5F4c0c60dEBF18
+      handler: src/EventHandlers.ts
+      events:
+      - event: Approval(address indexed owner, address indexed spender, uint256 value)
+      - event: AutoLiquify(uint256 amountNETZ, uint256 amountBOG)
+      - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+      - event: Transfer(address indexed from, address indexed to, uint256 value)
