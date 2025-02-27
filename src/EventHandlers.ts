@@ -14,7 +14,7 @@ DragonZ.Transfer.handler(async ({ event, context }) => {
     const nft: Nft = {
       id: event.params.tokenId.toString(),
       owner: event.params.to,
-      from: null,
+      from: ZERO_ADDRESS,
       to: event.params.to,
       image: metadata.image,
       attributes: JSON.stringify(metadata.attributes),
