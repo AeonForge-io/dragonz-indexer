@@ -5,7 +5,6 @@ type NftMetadata = {
   attributes: Array<any>;
 };
 
-// unique identifier for the BoredApeYachtClub IPFS tokenURI
 const BASE_URI_UID = "QmVHMW4pSJ1ZMA5fg74wMP6UC2BtzNVDPHEQZ734hjZUmS";
 
 async function fetchFromEndpoint(
@@ -14,7 +13,7 @@ async function fetchFromEndpoint(
   context: handlerContext
 ): Promise<NftMetadata | null> {
   try {
-    const response = await fetch(`${endpoint}/${BASE_URI_UID}/${tokenId}`);
+    const response = await fetch(`${endpoint}/${BASE_URI_UID}/${tokenId}.json`);
     if (response.ok) {
       const metadata: any = await response.json();
       context.log.info(metadata);
@@ -33,10 +32,7 @@ export async function tryFetchIpfsFile(
   context: handlerContext
 ): Promise<NftMetadata> {
   const endpoints = [
-    // we cycle through these endpoints to try ensure data availability
-    // PINATA_IPFS_GATEWAY is an envio env var that can be set in your .env file, this is a paid gateway although doesn't always guarantee availability
-    process.env.PINATA_IPFS_GATEWAY || "",
-    "https://cloudflare-ipfs.com/ipfs",
+    "https://white-generous-shark-171.mypinata.cloud/ipfs",
     "https://ipfs.io/ipfs",
   ];
 
