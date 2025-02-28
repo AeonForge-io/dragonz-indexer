@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
-name: dragonz-indexer-5
+name: DragonZ Indexer
 description: Testing the Indexer
 networks:
 - id: 2016 # MainnetZ Mainnet
@@ -8,7 +8,7 @@ networks:
   start_block: 0
   stop_block: 6000000
   contracts:
-    - name: Dragon
+    - name: DragonZ
       address:
       - 0x8222aa611aEe3EA1d3b2Fd6a0a4f3805bd175a48
       handler: src/EventHandlers.ts
